@@ -26,7 +26,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -36,6 +35,9 @@ jobs:
 
       - name: Build project
         run: pnpm run build
+        env:
+          NODE_ENV: production
+          VITE_APP_TITLE: Kego Tools
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
