@@ -153,11 +153,11 @@ function onFileChange(event: Event) {
 }
 
 // 处理拖拽
-function handleDragOver(event: DragEvent) {
+function handleDragOver(_event: DragEvent) {
   isDragover.value = true
 }
 
-function handleDragLeave(event: DragEvent) {
+function handleDragLeave(_event: DragEvent) {
   isDragover.value = false
 }
 
