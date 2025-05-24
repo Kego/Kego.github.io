@@ -3,6 +3,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'node:url'
 
+const isCI = process.env.CI_ENV === 'true'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
@@ -12,12 +14,12 @@ export default defineConfig({
     }
   },
   base: '',
-  server: {
+  server: !isCI ? {
     https: {
       key: fs.readFileSync('./cert/192.168.27.33-key.pem'),
       cert: fs.readFileSync('./cert/192.168.27.33.pem'),
-    },
-  },
+    }
+  } : undefined,
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

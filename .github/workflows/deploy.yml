@@ -36,6 +36,7 @@ jobs:
       - name: Build project
         run: pnpm run build
         env:
+          CI_ENV: true
           NODE_ENV: production
           VITE_APP_TITLE: Kego Tools
 
